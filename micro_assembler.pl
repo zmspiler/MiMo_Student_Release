@@ -28,8 +28,8 @@ my %Cvalue= (
 	'aluop=ror' =>      15,
 	'op2sel=treg' =>    0 << 4,
 	'op2sel=immed' =>   1 << 4,
-	'op2sel=0' =>       2 << 4,
-	'op2sel=1' =>       3 << 4,
+	'op2sel=const0' =>       2 << 4,
+	'op2sel=const1' =>       3 << 4,
 	'datawrite=0' =>    0 << 6,
 	'datawrite=1' =>    1 << 6,
 	'addrsel=pc' =>     0 << 7,
@@ -52,10 +52,10 @@ my %Cvalue= (
 	'regsrc=immed' =>   1 << 15,
 	'regsrc=aluout' =>  2 << 15,
 	'regsrc=sreg' =>    3 << 15,
-	'cond=z' =>         0 << 17,
-	'cond=norz' =>      1 << 17,
-	'cond=n' =>         2 << 17,
-	'cond=c' =>         3 << 17,
+	'cond=c' =>         0 << 17,
+	'cond=corz' =>      1 << 17,
+	'cond=z' =>         2 << 17,
+	'cond=n' =>         3 << 17,
 	'indexsel=0' =>     0 << 19,
 	'indexsel=opcode' =>1 << 19,
 	'datasel=pc' =>     0 << 20,
@@ -68,10 +68,10 @@ my %Cvalue= (
 
 # Condition values
 my %Cond= (
-  z => 0,
+  z => 2,
   norz => 1,
-  n => 2,
-  c => 3
+  n => 3,
+  c => 0
 );
 
 # Label to address lookup table
@@ -83,7 +83,7 @@ my (@CROM, @JROM, @Origline);
 my $nextaddr=0;		# Next address to use
 my $offset=0;		# Offset to opcode 0
 
-# Open up the input
+# Open up the input from file
 open(my $IN, "<", $ARGV[0]) || die("Cannot open $ARGV[0]: $!\n");
 while (<$IN>) {
   chomp;

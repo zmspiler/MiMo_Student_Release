@@ -1,0 +1,37 @@
+# A small set of microinstructions for the CPU
+# (c) GPL3 Warren Toomey, 2012
+#
+
+fetch:	addrsel=pc irload=1 			# Address=PC, Load IR register
+	pcload=1  pcsel=pc, opcode_jump		# PC=PC+1, jump to 2+OPC
+#
+# ALU operations on Rd,Rs,Rt
+0:	aluop=add  op2sel=treg  dwrite=1  regsrc=aluout, goto fetch			# ALU=+, ALU 2nd op = treg, write from aluout to reg
+
+#
+# Jump compared to zero operations
+#
+# JNEZ Rs,immed
+40:	addrsel=pc  imload=1								# Read Immediate operand -> IMRegister
+	aluop=sub  op2sel=const0, if z then pcincr else jump		# If z then pcincr else jump to immed; opsel=0 means value of 2 (constant 0 is selected!!!)
+
+#
+# Load immediate Rd, immed  ; li Rd,Immed
+63:	addrsel=pc  dwrite=1  regsrc=databus, goto pcincr				# additional increment (cause immed was read) and then new command
+#	pcload=1  pcsel=pc, goto fetch
+#
+
+#
+# Store Rd into M[immed] Rd->M[immed]
+65:	addrsel=pc  imload=1
+	addrsel=immed  datawrite=1  datasel=dreg, goto pcincr			# additional increment (cause immed was read) and then new command
+#	pcload=1  pcsel=pc, goto fetch
+
+#
+# Other code which we call
+
+# Increment PC and goto new command; for all commands that use immediate operand - they need additional PC increment !
+pcincr:	pcload=1  pcsel=pc, goto fetch
+
+# Set address to immed and goto new command; for absolute jumps to immed address
+jump:	pcload=1  pcsel=immed, goto fetch

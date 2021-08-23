@@ -98,6 +98,7 @@ open(my $IN, "<", $ARGV[0]) || die("Cannot open $ARGV[0]: $!\n");
 while (<$IN>) {
   chomp;
   s{\s*#.*}{};          # Trim comments
+  s{\t\t}{\t};          # Trim tabs
   next if (m{^\s*$});   # Skip blank lines
 
   $Origline[$PC]= $_;
