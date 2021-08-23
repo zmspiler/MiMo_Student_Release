@@ -5,6 +5,9 @@ use warnings;
 # Microassembler for Warren's 16-bit microcontrolled CPU.
 # (c) GPL3 Warren Toomey, 2012
 
+# v0 : Original file
+# v1 : Bug fixed: conz changed to corz   (line 75, RR 11/2017)
+
 die("Usage: $0 inputfile\n") if (@ARGV!=1);
 
 # Table of control ROM values for the
@@ -69,7 +72,7 @@ my %Cvalue= (
 # Condition values
 my %Cond= (
   z => 2,
-  norz => 1,
+  corz => 1,
   n => 3,
   c => 0
 );

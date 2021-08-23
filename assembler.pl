@@ -4,11 +4,32 @@ use warnings;
 
 # Assembler for Warren's 16-bit microcontrolled CPU.
 # (c) GPL3 Warren Toomey, 2012
+# v0 : Original file
+# v1 : Bug fixed: X processing option (11/2017)
+#                 few instructions' definitions changed
+# v2 : corrected bug for swi,lwi ( from 'dX' to 'dsi' )
 
 die("Usage: $0 inputfile\n") if (@ARGV!=1);
 
 # Table of opcode names, the values
 # and their arguments
+# Meaning of abbreviations in %Opcode:
+    # D-reg 				if ($atype eq 'd') {
+    # D-reg, S-reg is D-reg if ($atype eq 'D') {
+    # S-reg  				if ($atype eq 's') {
+    # T-reg 				if ($atype eq 't') {
+    # Absolute immediate	if ($atype eq 'i') {
+    # Relative immediate 	if ($atype eq 'I') {
+
+    # Indexed addressing. We want to allow these types of argument:
+    # (Rn) where immed=0, immed(Rn), Rn(immed) and 
+	#    immed can be numeric or a label and 
+	#    Rn is the s-reg
+    #						if ($atype eq 'X') {
+
+    # Register indexed addressing. We want to see Rs(Rt) only.
+    #						if ($atype eq 'S') {
+
 my %Opcode= (
 	add =>  [ 0, 'dst'  ],
 	sub =>  [ 1, 'dst'  ],
@@ -41,8 +62,10 @@ my %Opcode= (
 	asri => [ 28, 'dsi' ],
 	roli => [ 29, 'dsi' ],
 	rori => [ 30, 'dsi' ],
-	addc => [ 31, 'dstI'],
-	subc => [ 32, 'dstI'],
+#	addc => [ 31, 'dstI'],
+#	subc => [ 32, 'dstI'],
+	addc => [ 31, 'dsti'],   # addc Rd,Rs,Rt,immed
+	subc => [ 32, 'dsti'],   # subc Rd,Rs,Rt,immed
 	jeq =>  [ 33, 'sti' ],
 	jne =>  [ 34, 'sti' ],
 	jgt =>  [ 35, 'sti' ],
@@ -76,22 +99,27 @@ my %Opcode= (
 	li =>   [ 63, 'di'  ],
 	lw =>   [ 64, 'di'  ],
 	sw =>   [ 65, 'di'  ],
-	lwi =>  [ 66, 'dX'  ],
-	swi =>  [ 67, 'dX'  ],
+#	lwi =>  [ 66, 'dX'  ],
+#	swi =>  [ 67, 'dX'  ],
+	lwi =>  [ 66, 'dsi'  ],
+	swi =>  [ 67, 'dsi'  ],
 	push => [ 68, 'd',	'$Mcode[$PC]+= 7<<3; # sp' ],
 	pop =>  [ 69, 'd',	'$Mcode[$PC]+= 7<<3; # sp' ],
 	move => [ 70, 'ds'  ],
 	clr =>  [ 71, 's'   ],
 	neg =>  [ 72, 's'   ],
-	lwri => [ 73, 'dS' ],
-	swri => [ 74, 'dS' ],
+	lwri => [ 73, 'dst' ],    # lwri Rd,Rs,Rt
+	swri => [ 74, 'dst' ],	  # swri Rd,Rs,Rt
+#	lwri => [ 73, 'dS' ],
+#	swri => [ 74, 'dS' ],
 );
 
 my %Label;	# Hash of label -> PC values
 my @Mcode;	# Machine code for each PC value
 my @Origline;	# Original line
 my @Ltype;	# Type of label? undef is not, 1 is abs, 2 is rel
-my $PC=0;	# Current progam counter
+my $PC=0;	# Current program counter
+my $Version=2;	# Current program version
 
 # Open up the input
 open(my $IN, "<", $ARGV[0]) || die("Cannot open $ARGV[0]: $!\n");
@@ -185,14 +213,18 @@ while (<$IN>) {
     }
 
     # Indexed addressing. We want to allow these types of argument:
-    # (Rn) where immed=0, immed(Rn), Rn(immed) and immed can be
-    # numeric or a label and Rn is the s-reg
+    # (Rn) where immed=0, immed(Rn), Rn(immed) and 
+	#    immed can be numeric or a label and 
+	#    Rn is the s-reg
     if ($atype eq 'X') {
 	my ($regnum, $immed);
 	if ($arg=~ m{(\S*)\([Rr](\d+)\)}) {
 	  $immed= $1; $regnum=$2;
 	}
 	if ($arg=~ m{[Rr](\d+)\((\S+)\)}) {
+	  $immed= $2; $regnum=$1;
+	}
+	if ($arg=~ m{[Rr](\d+),(\S+)}) {   # [ls]wi Rd,Rs,immed
 	  $immed= $2; $regnum=$1;
 	}
         die("Bad indexed arg: $arg\n") if (!defined($regnum));
@@ -238,14 +270,18 @@ for (my $i=0; $i < @Mcode; $i++) {
   $Mcode[$i]= $label & 0xffff;
 }
 
+my $outfile= $ARGV[0];
+$outfile=~ s{\.[^\.*]$}{.ram};
+
+printf("\nMiMo Assembler V%d: compiling from %s to %s\n\n", $Version, $ARGV[0], $outfile);
+
+
 # Print out the machine code in hex for now
 for (my $i=0; $i < @Mcode; $i++) {
   printf("%04x: %08x  %016b\t%s\n", $i, $Mcode[$i], $Mcode[$i], $Origline[$i] ? $Origline[$i] : "");
 }
 
 # Create and save the RAM file
-my $outfile= $ARGV[0];
-$outfile=~ s{\.[^\.*]$}{.ram};
 open(my $OUT, ">", $outfile) || die("Can't write to $outfile: $!\n");
 print($OUT "v2.0 raw\n");
 for (my $i=0; $i < @Mcode; $i++) {

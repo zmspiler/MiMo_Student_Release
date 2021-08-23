@@ -201,7 +201,7 @@ dec Rs (62)
 	Rs <- Rs - 1		PC <- PC + 1
 
 li Rd,immed (63)
-	Rd <- immed		PC <- PC + 2
+	Rd <- immed			PC <- PC + 2
 
 lw Rd,immed (64)
 	Rd <- M[immed]		PC <- PC + 2
@@ -217,20 +217,20 @@ swi Rd,Rs,immed (67)
 
 push Rd (68)
 	R7--
-	M[R7] <- Rd		PC <- PC + 1
+	M[R7] <- Rd			PC <- PC + 1
 
 pop  Rd (69)
 	Rd <- M[R7]
-	R7++			PC <- PC + 1
+	R7++				PC <- PC + 1
 
 move Rd,Rs (70)
-	Rd <- Rs		PC <- PC + 1
+	Rd <- Rs			PC <- PC + 1
 
 clr  Rs (71)
-	Rs <- 0			PC <- PC + 1
+	Rs <- 0				PC <- PC + 1
 
 neg  Rs (72)
-	Rs <-  -Rs		PC <- PC + 1
+	Rs <-  -Rs			PC <- PC + 1
 	
 lwri Rd,Rs,Rt (73)
 	Rd <- M[Rs+Rt]		PC <- PC + 1
