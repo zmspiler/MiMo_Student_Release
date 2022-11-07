@@ -572,23 +572,39 @@
       <a name="labelfont" val="SansSerif bold 28"/>
       <a name="labelloc" val="north"/>
     </comp>
-    <comp lib="6" loc="(1008,386)" name="Text">
+    <comp lib="6" loc="(1026,294)" name="Text">
+      <a name="font" val="SansSerif bold 12"/>
+      <a name="text" val="2a [42]:addrsel=pc  imload=1   # JNEZ Rs,immed"/>
+    </comp>
+    <comp lib="6" loc="(1028,419)" name="Text">
+      <a name="font" val="SansSerif bold 12"/>
+      <a name="text" val="84 [132]:   pcincr: pcload=1  pcsel=pc, goto fetch"/>
+    </comp>
+    <comp lib="6" loc="(1038,437)" name="Text">
+      <a name="font" val="SansSerif bold 12"/>
+      <a name="text" val="85 [133]:   jump:  pcload=1  pcsel=immed, goto fetch"/>
+    </comp>
+    <comp lib="6" loc="(1067,392)" name="Text">
+      <a name="font" val="SansSerif bold 12"/>
+      <a name="text" val="82 [130]: aluop=sub  op2sel=const0, if z then pcincr else jump "/>
+    </comp>
+    <comp lib="6" loc="(1078,364)" name="Text">
       <a name="font" val="SansSerif bold 12"/>
       <a name="text" val="43 [67]:addrsel=pc  imload=1    # Store Rd into address from immed"/>
     </comp>
-    <comp lib="6" loc="(1032,365)" name="Text">
+    <comp lib="6" loc="(1102,343)" name="Text">
       <a name="font" val="SansSerif bold 12"/>
       <a name="text" val="41 [65]:addrsel=pc  dwrite=1  regsrc=databus  # Load immediate Rd, immed"/>
     </comp>
-    <comp lib="6" loc="(1051,205)" name="Text">
+    <comp lib="6" loc="(1121,183)" name="Text">
       <a name="font" val="SansSerif plain 14"/>
       <a name="text" val="Use ctrl+t to manually toggle global clock signal"/>
     </comp>
-    <comp lib="6" loc="(1075,224)" name="Text">
+    <comp lib="6" loc="(1145,202)" name="Text">
       <a name="font" val="SansSerif plain 14"/>
       <a name="text" val="Use Simulate-&gt;Ticks Enabled for automatic clock signal"/>
     </comp>
-    <comp lib="6" loc="(1080,275)" name="Text">
+    <comp lib="6" loc="(1150,253)" name="Text">
       <a name="font" val="SansSerif bold 12"/>
       <a name="text" val="2:aluop=add  op2sel=treg  dwrite=1  regsrc=aluout, goto fetch  # ALU operations on Rd,Rs,Rt"/>
     </comp>
@@ -639,25 +655,9 @@
       <a name="font" val="SansSerif bold 28"/>
       <a name="text" val="Next uPC"/>
     </comp>
-    <comp lib="6" loc="(919,185)" name="Text">
+    <comp lib="6" loc="(989,163)" name="Text">
       <a name="font" val="SansSerif bolditalic 14"/>
       <a name="text" val="Quick tips:"/>
-    </comp>
-    <comp lib="6" loc="(956,316)" name="Text">
-      <a name="font" val="SansSerif bold 12"/>
-      <a name="text" val="2a [42]:addrsel=pc  imload=1   # JNEZ Rs,immed"/>
-    </comp>
-    <comp lib="6" loc="(958,441)" name="Text">
-      <a name="font" val="SansSerif bold 12"/>
-      <a name="text" val="84 [132]:   pcincr: pcload=1  pcsel=pc, goto fetch"/>
-    </comp>
-    <comp lib="6" loc="(968,459)" name="Text">
-      <a name="font" val="SansSerif bold 12"/>
-      <a name="text" val="85 [133]:   jump:  pcload=1  pcsel=immed, goto fetch"/>
-    </comp>
-    <comp lib="6" loc="(997,414)" name="Text">
-      <a name="font" val="SansSerif bold 12"/>
-      <a name="text" val="82 [130]: aluop=sub  op2sel=const0, if z then pcincr else jump "/>
     </comp>
     <wire from="(170,500)" to="(180,500)"/>
     <wire from="(170,540)" to="(180,540)"/>
@@ -782,9 +782,7 @@
     <wire from="(720,200)" to="(750,200)"/>
     <wire from="(760,570)" to="(770,570)"/>
     <wire from="(770,460)" to="(770,570)"/>
-    <wire from="(770,570)" to="(770,730)"/>
     <wire from="(770,570)" to="(840,570)"/>
-    <wire from="(770,730)" to="(830,730)"/>
     <wire from="(830,60)" to="(860,60)"/>
     <wire from="(840,570)" to="(840,600)"/>
     <wire from="(840,600)" to="(840,610)"/>

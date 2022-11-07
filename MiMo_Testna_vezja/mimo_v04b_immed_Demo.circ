@@ -117,10 +117,10 @@
     <appear>
       <path d="M61,51 Q65,61 69,51" fill="none" stroke="#808080" stroke-width="2"/>
       <rect fill="none" height="241" stroke="#000000" stroke-width="2" width="171" x="50" y="50"/>
-      <circ-anchor facing="east" height="6" width="6" x="47" y="57"/>
+      <circ-anchor facing="east" height="6" width="6" x="47" y="87"/>
       <circ-port height="10" pin="550,180" width="10" x="215" y="55"/>
-      <circ-port height="8" pin="190,180" width="8" x="46" y="56"/>
-      <circ-port height="8" pin="290,310" width="8" x="46" y="86"/>
+      <circ-port height="8" pin="190,180" width="8" x="46" y="66"/>
+      <circ-port height="8" pin="290,310" width="8" x="46" y="116"/>
     </appear>
     <comp lib="0" loc="(190,180)" name="Pin">
       <a name="appearance" val="classic"/>
@@ -195,6 +195,10 @@
     <comp lib="6" loc="(587,65)" name="Text">
       <a name="text" val="v0.5"/>
     </comp>
+    <comp lib="6" loc="(588,154)" name="Text">
+      <a name="font" val="SansSerif bold 20"/>
+      <a name="text" val="immed"/>
+    </comp>
     <comp lib="6" loc="(59,187)" name="Text">
       <a name="font" val="SansSerif bold 20"/>
       <a name="text" val="Data Bus"/>
@@ -202,11 +206,7 @@
     <comp lib="6" loc="(642,65)" name="Text">
       <a name="text" val="OR"/>
     </comp>
-    <comp lib="6" loc="(676,186)" name="Text">
-      <a name="font" val="SansSerif bold 20"/>
-      <a name="text" val="immed"/>
-    </comp>
-    <comp loc="(400,180)" name="ImmediateReg"/>
+    <comp loc="(400,200)" name="ImmediateReg"/>
     <wire from="(190,180)" to="(220,180)"/>
     <wire from="(220,180)" to="(250,180)"/>
     <wire from="(250,160)" to="(250,180)"/>
@@ -222,7 +222,8 @@
     <wire from="(350,180)" to="(380,180)"/>
     <wire from="(360,200)" to="(360,250)"/>
     <wire from="(360,200)" to="(380,200)"/>
-    <wire from="(420,180)" to="(470,180)"/>
+    <wire from="(420,180)" to="(430,180)"/>
+    <wire from="(430,180)" to="(470,180)"/>
     <wire from="(470,180)" to="(470,230)"/>
     <wire from="(470,180)" to="(500,180)"/>
     <wire from="(470,230)" to="(520,230)"/>

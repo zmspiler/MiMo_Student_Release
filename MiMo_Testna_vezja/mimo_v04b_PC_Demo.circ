@@ -229,7 +229,7 @@
       <a name="font" val="SansSerif bold 28"/>
       <a name="text" val="MiMo - Microprogrammed CPU Model"/>
     </comp>
-    <comp lib="6" loc="(449,119)" name="Text">
+    <comp lib="6" loc="(425,136)" name="Text">
       <a name="font" val="SansSerif bold 24"/>
       <a name="text" val="PC Logic"/>
     </comp>

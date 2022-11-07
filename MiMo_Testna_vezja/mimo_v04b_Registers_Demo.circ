@@ -408,15 +408,15 @@
       <a name="labelfont" val="SansSerif bold 28"/>
       <a name="labelloc" val="north"/>
     </comp>
-    <comp lib="6" loc="(1056,313)" name="Text">
+    <comp lib="6" loc="(1006,311)" name="Text">
       <a name="font" val="SansSerif bold 20"/>
       <a name="text" val="REZ"/>
     </comp>
-    <comp lib="6" loc="(1058,370)" name="Text">
+    <comp lib="6" loc="(1008,368)" name="Text">
       <a name="font" val="SansSerif bold 20"/>
       <a name="text" val="OP1"/>
     </comp>
-    <comp lib="6" loc="(1058,419)" name="Text">
+    <comp lib="6" loc="(1008,417)" name="Text">
       <a name="font" val="SansSerif bold 20"/>
       <a name="text" val="OP2"/>
     </comp>
