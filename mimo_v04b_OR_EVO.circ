@@ -327,6 +327,7 @@
       <a name="label" val="n"/>
     </comp>
     <comp lib="0" loc="(1230,320)" name="Tunnel">
+      <a name="label" val="pcreg"/>
       <a name="labelfont" val="SansSerif bolditalic 12"/>
       <a name="width" val="16"/>
     </comp>
@@ -641,6 +642,7 @@
       <a name="width" val="16"/>
     </comp>
     <comp lib="0" loc="(440,480)" name="Tunnel">
+      <a name="label" val="pcreg"/>
       <a name="labelfont" val="SansSerif bolditalic 12"/>
       <a name="width" val="16"/>
     </comp>
@@ -704,6 +706,7 @@
       <a name="radix" val="16"/>
     </comp>
     <comp lib="0" loc="(510,120)" name="Tunnel">
+      <a name="label" val="pcreg"/>
       <a name="labelfont" val="SansSerif bolditalic 12"/>
       <a name="width" val="16"/>
     </comp>
@@ -3373,7 +3376,7 @@
     </comp>
     <comp lib="0" loc="(360,90)" name="Constant"/>
     <comp lib="0" loc="(370,210)" name="Constant"/>
-    <comp lib="0" loc="(370,210)" name="Constant"/>
+    <comp lib="0" loc="(380,220)" name="Constant"/>
     <comp lib="0" loc="(390,130)" name="Constant"/>
     <comp lib="0" loc="(390,170)" name="Constant"/>
     <comp lib="0" loc="(420,130)" name="Pin">

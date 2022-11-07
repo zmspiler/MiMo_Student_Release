@@ -686,6 +686,7 @@
       <a name="width" val="16"/>
     </comp>
     <comp lib="0" loc="(440,480)" name="Tunnel">
+      <a name="label" val="pcreg"/>
       <a name="labelfont" val="SansSerif bolditalic 12"/>
       <a name="width" val="16"/>
     </comp>
