@@ -1,0 +1,12 @@
+RAM = 0		0000000000000000
+LED_Disp = 16384	0100000000000000		
+TTY = 32768	1000000000000000
+SOUND = 49152	1100000000000000
+
+
+Naprave so 16 Bitov narazen (16 bitov prostora imam za svojo izhodnjo napravo)
+
+0 bit -- reset 
+1 bit -- Note
+2 bit -- Note Velocity (duration)
+3-16 bit -- Unused

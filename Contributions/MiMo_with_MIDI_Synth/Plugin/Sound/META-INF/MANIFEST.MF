@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Created-By: Wolf's are nice to play with
+Library-Class: si.wolf.library
+
