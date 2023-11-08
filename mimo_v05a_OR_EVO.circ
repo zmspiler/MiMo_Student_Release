@@ -109,7 +109,7 @@
     <a name="circuit" val="MiMo_v05"/>
     <a name="clabel" val="address"/>
     <a name="clabelfont" val="SansSerif plain 12"/>
-    <a name="simulationFrequency" val="2048000.0"/>
+    <a name="simulationFrequency" val="128.0"/>
     <appear>
       <path d="M61,51 Q65,61 69,51" fill="none" stroke="#808080" stroke-width="2"/>
       <rect fill="none" height="241" stroke="#000000" stroke-width="2" width="171" x="50" y="50"/>
@@ -1380,7 +1380,7 @@
       <a name="appearance" val="classic"/>
       <a name="contents">addr/data: 8 32
 2000 80800 11000 39*0 4000 22*0 1000 0
-4000 62*0 40021 1000c0 800 a00
+4000 62*0 21 1000c0 800 a00
 </a>
       <a name="dataWidth" val="32"/>
     </comp>
@@ -1592,7 +1592,7 @@
       <a name="halign" val="left"/>
       <a name="text" val="v05: Migration to EVO, Debug, Counters, ImmReg Units"/>
     </comp>
-    <comp lib="6" loc="(70,1521)" name="Text">
+    <comp lib="6" loc="(70,1520)" name="Text">
       <a name="color" val="#ff0000"/>
       <a name="halign" val="left"/>
       <a name="text" val="v05a: norz instead of corz"/>
