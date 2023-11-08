@@ -7,6 +7,10 @@ use warnings;
 
 # v0 : Original file
 # v1 : Bug fixed: conz changed to corz   (line 75, RR 11/2017)
+# v2 : MiMo v5a support added (norz instead of corz) (lines 59-62, 75-78, RR 11/2023)
+#      Bug fixed: Line 167  ($cond,$tjump)=($1,$2); instead of ($cond,$jump)=($1,$2);    (Jelovcan) 
+
+my $version = "v2 (11/2023)";
 
 die("Usage: $0 inputfile\n") if (@ARGV!=1);
 
@@ -55,10 +59,10 @@ my %Cvalue= (
 	'regsrc=immed' =>   1 << 15,
 	'regsrc=aluout' =>  2 << 15,
 	'regsrc=sreg' =>    3 << 15,
-	'cond=c' =>         0 << 17,
-	'cond=corz' =>      1 << 17,
-	'cond=z' =>         2 << 17,
-	'cond=n' =>         3 << 17,
+	'cond=z' =>         0 << 17,
+	'cond=norz' =>      1 << 17,
+	'cond=n' =>         2 << 17,
+	'cond=c' =>         3 << 17,
 	'indexsel=0' =>     0 << 19,
 	'indexsel=opcode' =>1 << 19,
 	'datasel=pc' =>     0 << 20,
@@ -71,10 +75,10 @@ my %Cvalue= (
 
 # Condition values
 my %Cond= (
-  z => 2,
-  corz => 1,
-  n => 3,
-  c => 0
+  z => 0,
+  norz => 1,
+  n => 2,
+  c => 3
 );
 
 # Label to address lookup table
@@ -196,6 +200,9 @@ for my $i (0 .. 255) {
   }
   $JROM[$i]= ($tjump << 8) + $fjump;
 }
+
+# Print out version
+printf("$0 %s\n",$version);
 
 # Print out the ROMs
 for my $i (0 .. 255) {
