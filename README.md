@@ -32,6 +32,13 @@ MiMo CPU model release for students at Computer Organization course
     + previous versions for 2.7.1 kept just in case
     + student contributions added
 
+## TODO: Student release in 2023/24
+
+### Description :
+
+ - bug in microassembler (if-then)
+ - corz, or n flag (in original MiMo model)      
+
 ## Student release in 2019/20, 20/21
 
 ### Changes :
