@@ -7,11 +7,12 @@ MiMo CPU model release for students at Computer Organization course
 
 - mimo_v05a_OR_EVO.circ   
   - New MiMo model (v05a) for this and upcoming years
+    - Rearrangement of flags in Control Unit (norz instead of corz)
 
 ### Changes :
     + micro-assembler update v2 (Bugfix+norz instead of corz)
     + previous versions moved to Archive folder
-    + student contributions added
+    + student contributions added (Timer/Counter, PIO Controller)
 
 
 ## Student release in 2022/23
@@ -32,6 +33,12 @@ MiMo CPU model release for students at Computer Organization course
     + previous versions for 2.7.1 kept just in case
     + student contributions added
 
+## TODO: Student release in 2024/25
+
+### Description :
+
+ - work in progress
+-   
 ## TODO: Student release in 2023/24
 
 ### Description :
