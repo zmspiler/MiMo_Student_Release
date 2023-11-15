@@ -3559,25 +3559,6 @@ aeac acae acb1 aeb2 acb2 aeb1 acac 0
       <a name="label" val="Address"/>
       <a name="width" val="16"/>
     </comp>
-    <comp lib="0" loc="(230,190)" name="Splitter">
-      <a name="bit1" val="0"/>
-      <a name="bit10" val="0"/>
-      <a name="bit11" val="0"/>
-      <a name="bit12" val="0"/>
-      <a name="bit13" val="0"/>
-      <a name="bit14" val="1"/>
-      <a name="bit15" val="2"/>
-      <a name="bit2" val="0"/>
-      <a name="bit3" val="0"/>
-      <a name="bit4" val="0"/>
-      <a name="bit5" val="0"/>
-      <a name="bit6" val="0"/>
-      <a name="bit7" val="0"/>
-      <a name="bit8" val="0"/>
-      <a name="bit9" val="0"/>
-      <a name="fanout" val="3"/>
-      <a name="incoming" val="16"/>
-    </comp>
     <comp lib="0" loc="(400,110)" name="Pin">
       <a name="appearance" val="classic"/>
       <a name="facing" val="west"/>
@@ -3602,61 +3583,7 @@ aeac acae acb1 aeb2 acb2 aeb1 acac 0
       <a name="label" val="LED"/>
       <a name="output" val="true"/>
     </comp>
-    <comp lib="1" loc="(360,110)" name="AND Gate">
-      <a name="negate0" val="true"/>
-      <a name="negate1" val="true"/>
-      <a name="size" val="30"/>
-    </comp>
-    <comp lib="1" loc="(360,160)" name="AND Gate">
-      <a name="negate0" val="true"/>
-      <a name="size" val="30"/>
-    </comp>
-    <comp lib="1" loc="(360,210)" name="AND Gate">
-      <a name="negate0" val="true"/>
-      <a name="size" val="30"/>
-    </comp>
-    <comp lib="1" loc="(360,260)" name="AND Gate">
-      <a name="size" val="30"/>
-    </comp>
-    <comp lib="6" loc="(110,318)" name="Text">
-      <a name="text" val="01 - FB_LED"/>
-    </comp>
-    <comp lib="6" loc="(71,265)" name="Text">
-      <a name="text" val="b15, b14"/>
-    </comp>
-    <comp lib="6" loc="(92,340)" name="Text">
-      <a name="text" val="10 - TTY"/>
-    </comp>
-    <comp lib="6" loc="(93,360)" name="Text">
-      <a name="text" val="11 - free"/>
-    </comp>
-    <comp lib="6" loc="(96,297)" name="Text">
-      <a name="text" val="00 - RMA"/>
-    </comp>
     <wire from="(190,190)" to="(230,190)"/>
-    <wire from="(250,170)" to="(280,170)"/>
-    <wire from="(250,180)" to="(290,180)"/>
-    <wire from="(280,100)" to="(280,170)"/>
-    <wire from="(280,100)" to="(320,100)"/>
-    <wire from="(280,170)" to="(280,200)"/>
-    <wire from="(280,170)" to="(330,170)"/>
-    <wire from="(280,200)" to="(280,270)"/>
-    <wire from="(280,200)" to="(320,200)"/>
-    <wire from="(280,270)" to="(330,270)"/>
-    <wire from="(290,120)" to="(290,150)"/>
-    <wire from="(290,120)" to="(320,120)"/>
-    <wire from="(290,150)" to="(290,180)"/>
-    <wire from="(290,150)" to="(320,150)"/>
-    <wire from="(290,180)" to="(290,220)"/>
-    <wire from="(290,220)" to="(290,250)"/>
-    <wire from="(290,220)" to="(330,220)"/>
-    <wire from="(290,250)" to="(330,250)"/>
-    <wire from="(320,100)" to="(330,100)"/>
-    <wire from="(320,120)" to="(330,120)"/>
-    <wire from="(360,110)" to="(400,110)"/>
-    <wire from="(360,160)" to="(400,160)"/>
-    <wire from="(360,210)" to="(400,210)"/>
-    <wire from="(360,260)" to="(400,260)"/>
   </circuit>
   <circuit name="Counters">
     <a name="appearance" val="custom"/>
@@ -4502,46 +4429,46 @@ aeac acae acb1 aeb2 acb2 aeb1 acac 0
       <a name="appearance" val="classic"/>
       <a name="width" val="4"/>
     </comp>
-    <comp lib="6" loc="(309,622)" name="Text">
+    <comp lib="6" loc="(305,620)" name="Text">
       <a name="text" val="GPIO - B"/>
     </comp>
-    <comp lib="6" loc="(319,246)" name="Text">
+    <comp lib="6" loc="(315,245)" name="Text">
       <a name="text" val="GPIO - A"/>
     </comp>
-    <comp lib="6" loc="(402,254)" name="Text">
+    <comp lib="6" loc="(400,250)" name="Text">
       <a name="text" val="enable"/>
     </comp>
-    <comp lib="6" loc="(402,706)" name="Text">
+    <comp lib="6" loc="(400,325)" name="Text">
       <a name="text" val="out/in"/>
     </comp>
-    <comp lib="6" loc="(403,778)" name="Text">
+    <comp lib="6" loc="(400,395)" name="Text">
       <a name="text" val="set/clear"/>
     </comp>
-    <comp lib="6" loc="(404,327)" name="Text">
+    <comp lib="6" loc="(400,705)" name="Text">
       <a name="text" val="out/in"/>
     </comp>
-    <comp lib="6" loc="(404,395)" name="Text">
+    <comp lib="6" loc="(400,775)" name="Text">
       <a name="text" val="set/clear"/>
     </comp>
     <comp lib="6" loc="(405,635)" name="Text">
       <a name="text" val="enable"/>
     </comp>
-    <comp lib="6" loc="(553,80)" name="Text">
+    <comp lib="6" loc="(550,80)" name="Text">
       <a name="text" val="bit 15 = 0 (PIOA)"/>
     </comp>
-    <comp lib="6" loc="(554,98)" name="Text">
+    <comp lib="6" loc="(550,95)" name="Text">
       <a name="text" val="bit 15 = 1 (PIOB)"/>
     </comp>
-    <comp lib="6" loc="(573,184)" name="Text">
+    <comp lib="6" loc="(570,180)" name="Text">
       <a name="text" val="bit 0,1,2,3 = pin0,1,2,3"/>
     </comp>
-    <comp lib="6" loc="(599,163)" name="Text">
+    <comp lib="6" loc="(595,160)" name="Text">
       <a name="text" val="bit 14,13 (10) - Set(1)/Clear(0)"/>
     </comp>
-    <comp lib="6" loc="(605,119)" name="Text">
+    <comp lib="6" loc="(605,115)" name="Text">
       <a name="text" val="bit 14,13 (00) - enable interface"/>
     </comp>
-    <comp lib="6" loc="(611,141)" name="Text">
+    <comp lib="6" loc="(610,140)" name="Text">
       <a name="text" val="bit 14,13 (01) - output(1)/input(0)"/>
     </comp>
     <wire from="(150,510)" to="(170,510)"/>
