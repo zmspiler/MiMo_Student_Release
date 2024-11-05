@@ -1,6 +1,15 @@
 # MiMo_Student_Release
 MiMo CPU model release for students at Computer Organization course 
 
+## Student release in 2024/25
+
+### Models description :
+
+- model is the same as for 2023/24 (v05a)   
+
+### Changes :
+    + new student contributions added
+    
 ## Student release in 2023/24
 
 ### Models description :
