@@ -1,14 +1,14 @@
 # Default, for when condition is not met (here we only need to set the IF instruction to get next isntruction from memory
 default: pcsel=pc
 
-# 2. add - Rd, Rs, Rt   Rd <- Rs + Rt
-2: op2sel=op2 aluop=add regsrc=aluout dwrite=1 pcsel=pc
-
 # 0. mov - Rd, Rs   Rd <- Rs
 0: regsrc=op2 dwrite=1 pcsel=pc
 
 # 1. mvn - Rd, Rs   Rd <- !Rs
 1: op2sel=op2 rvrsOps=1 aluop=not regsrc=aluout dwrite=1 pcsel=pc
+
+# 2. add - Rd, Rs, Rt   Rd <- Rs + Rt
+2: op2sel=op2 aluop=add regsrc=aluout dwrite=1 pcsel=pc
 
 # 3. sub - Rd, Rs, Rt   Rd <- Rs - Rt
 3: op2sel=op2 aluop=sub regsrc=aluout dwrite=1 pcload=1 pcsel=pc addrsel=pc
